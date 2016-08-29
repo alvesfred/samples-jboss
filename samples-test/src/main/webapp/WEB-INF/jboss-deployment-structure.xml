@@ -1,0 +1,28 @@
+<jboss-deployment-structure>
+
+	<deployment>
+		<dependencies>
+			<module name="org.apache.commons.collections" />
+			<module name="org.apache.commons.lang" export="true" />
+
+			<module name="org.codehaus.jackson.jackson-jaxrs" />
+			<module name="org.codehaus.jackson.jackson-core-asl" />
+			<module name="org.codehaus.jackson.jackson-mapper-asl" />
+			
+			<module name="org.jboss.resteasy.resteasy-jaxrs" services="export" export="true"/>
+			<module name="org.jboss.resteasy.resteasy-jaxb-provider" />
+			<module name="org.jboss.resteasy.resteasy-jackson-provider" />
+		</dependencies>
+
+		<system>
+			<paths>
+				<path name="javax/ws/rs/client/" />
+				<path name="org/codehaus/jackson/map/" />
+				<path name="org/apache/commons/lang/builder/" />
+				<path name="org/apache/commons/lang3/exception/" />
+			</paths>
+		</system>
+
+	</deployment>
+
+</jboss-deployment-structure>

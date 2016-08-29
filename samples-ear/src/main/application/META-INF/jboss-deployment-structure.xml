@@ -1,0 +1,49 @@
+<jboss-deployment-structure>
+
+	<deployment>
+    	<exclusions>
+    	<!-- 
+            <module name="javax.faces.api" slot="main" />
+            <module name="com.sun.jsf-impl" slot="main" />
+        -->
+       	</exclusions>
+
+	<dependencies>
+   	    <module name="org.apache.commons.collections" />
+  	    <module name="org.apache.commons.lang" export="true" />
+
+            <module name="org.hornetq" />
+	    <module name="org.hibernate" />
+
+            <module name="org.infinispan" export="true" />
+	    <module name="org.jgroups"    export="true" />           
+
+	    <module name="org.codehaus.jackson.jackson-jaxrs" />
+	    <module name="org.codehaus.jackson.jackson-core-asl" />
+	    <module name="org.codehaus.jackson.jackson-mapper-asl" />
+	</dependencies>
+  </deployment>
+
+  <sub-deployment name="samples-core.jar">
+ 	<exclusions>
+ 	</exclusions>
+
+ 	<dependencies>
+ 	   <module name="org.hornetq" />
+ 	   <module name="org.hibernate" />
+
+  	   <module name="javax.faces.api" slot="main" export="true"/>
+           <module name="com.sun.jsf-impl" slot="main" />
+           
+           <module name="org.infinispan" export="true" />
+           <module name="org.jgroups"    export="true" />           
+           
+           <system>
+                <paths>
+                    <path name="org/apache/commons/lang/builder/" />
+                    <path name="javax/faces/model"/>
+                </paths>
+       	   </system>
+ 	</dependencies>
+  </sub-deployment>
+</jboss-deployment-structure>

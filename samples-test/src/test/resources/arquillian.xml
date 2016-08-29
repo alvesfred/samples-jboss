@@ -1,0 +1,20 @@
+<arquillian xmlns="http://jboss.org/schema/arquillian"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://jboss.org/schema/arquillian
+        http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+	<defaultProtocol type="Servlet 3.0"/>   
+	
+	<container qualifier="jboss" default="true">
+        <configuration>
+        	<property name="jbossHome">/opt/java/jboss/jboss-eap-6.4/</property>
+        	<property name="serverConfig">standalone-full-ha.xml</property>
+        	<property name="javaVmArguments">-Xms512m -Xmx1024m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -XX:+UseCompressedOops -XX:+AggressiveOpts -XX:+HeapDumpOnOutOfMemoryError -noverify -Xss512k -XX:StackShadowPages=8 -XX:+UseFastAccessorMethods</property>
+            <property name="managementAddress">localhost</property>
+            <property name="managementPort">9999</property>
+            <property name="username">admin</property>
+            <property name="password">admin</property>
+        </configuration>
+    </container>
+</arquillian>

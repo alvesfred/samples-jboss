@@ -1,0 +1,220 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.com.alvesfred.samples</groupId>
+		<artifactId>samples-pom-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>samples-ear</artifactId>
+	<name>samples-ear</name>
+	<description>Samples EAR</description>
+	<packaging>ear</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>br.com.alvesfred.samples</groupId>
+			<artifactId>samples-core</artifactId>
+			<version>${project.version}</version>
+			<scope>compile</scope>
+			<type>ejb</type>
+		</dependency>
+
+      	<!-- suporte jms api -->
+	    <dependency>
+         	<groupId>org.hornetq</groupId>
+        	<artifactId>hornetq-core-client</artifactId>
+        	<scope>provided</scope>
+        	<!-- version>${hornetq.version}</version-->
+      	</dependency>
+		<dependency>
+			<groupId>org.hornetq</groupId>
+			<artifactId>hornetq-jms-client</artifactId>
+			<scope>provided</scope>
+			<!-- version>${hornetq.version}</version-->
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.jms</groupId>
+			<artifactId>jboss-jms-api_1.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Quartz -->
+		<dependency>
+			<groupId>org.quartz-scheduler</groupId>
+			<artifactId>quartz</artifactId>
+			<version>2.2.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>c3p0</groupId>
+					<artifactId>c3p0</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+			<scope>compile</scope>
+		</dependency>
+
+<!-- 
+		<dependency>
+   			<groupId>org.springframework</groupId>
+   			<artifactId>spring-core</artifactId>
+	   		<version>${spring.version}</version>
+	   		<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+   			<groupId>org.springframework</groupId>
+   			<artifactId>spring-beans</artifactId>
+	   		<version>${spring.version}</version>
+	   		<scope>compile</scope>
+		</dependency>
+	
+		<dependency>
+   			<groupId>org.springframework</groupId>
+   			<artifactId>spring-tx</artifactId>
+	   		<version>${spring.version}</version>
+	   		<scope>compile</scope>
+		</dependency>
+ -->		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+	   		<version>${spring.version}</version>
+	   		<scope>compile</scope>
+	   		<exclusions>
+	   			<exclusion>
+	   				<artifactId>spring-core</artifactId>
+	   				<groupId>org.springframework</groupId>
+	   			</exclusion>
+	   			<exclusion>
+	   				<artifactId>spring-beans</artifactId>
+	   				<groupId>org.springframework</groupId>
+	   			</exclusion>
+	   			<exclusion>
+	   				<artifactId>spring-aop</artifactId>
+	   				<groupId>org.springframework</groupId>
+	   			</exclusion>
+	   			<exclusion>
+	   				<artifactId>spring-expression</artifactId>
+	   				<groupId>org.springframework</groupId>
+	   			</exclusion>
+	   		</exclusions>
+		</dependency>
+
+		<!-- Apache DeltaSpike Scheduler -->
+		<dependency> 
+			<groupId>org.apache.deltaspike.modules</groupId> 
+			<artifactId>deltaspike-scheduler-module-api</artifactId>
+		    <version>${deltaspike.version}</version>
+		    <scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.deltaspike.cdictrl</groupId>
+			<artifactId>deltaspike-cdictrl-weld</artifactId>
+			<version>${deltaspike.version}</version>
+			<scope>runtime</scope>
+		</dependency>		
+		<dependency>
+			<groupId>org.apache.deltaspike.cdictrl</groupId>
+			<artifactId>deltaspike-cdictrl-api</artifactId>
+			<version>${deltaspike.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.deltaspike.modules</groupId>
+		    <artifactId>deltaspike-scheduler-module-impl</artifactId>
+		    <version>${deltaspike.version}</version>
+		    <scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+		   <groupId>joda-time</groupId>
+		   <artifactId>joda-time</artifactId>
+		   <!-- version>2.5</version-->
+		   <scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>de.congrace</groupId> 
+			<artifactId>exp4j</artifactId>
+			<version>0.3.2</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-email</artifactId>
+            <version>1.4</version>
+            <scope>compile</scope>
+        </dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<!-- version>18.0</version-->
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.trove4j</groupId>
+			<artifactId>trove4j</artifactId>
+			<version>3.0.3</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.1.3</version>
+            <scope>compile</scope>
+        </dependency>
+
+		<dependency>
+			<groupId>com.lmax</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>3.3.4</version>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>samples-ear</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<version>6</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<earSourceDirectory>src/main/application</earSourceDirectory>
+					<generateApplicationXml>false</generateApplicationXml>
+
+					<modules>
+						<ejbModule>
+							<groupId>br.com.alvesfred.samples</groupId>
+							<artifactId>samples-core</artifactId>
+							<bundleFileName>samples-core.jar</bundleFileName>
+						</ejbModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

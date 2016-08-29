@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<infinispan
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:infinispan:config:7.0 http://www.infinispan.org/schemas/infinispan-config-7.0.xsd"
+        xmlns="urn:infinispan:config:7.0">
+	
+	<global>
+		<globalJmxStatistics enabled="true" jmxDomain="org.infinispan" 
+			cacheManagerName="samples-cache-manager" allowDuplicateDomains="true" />
+	</global>
+ 	
+ 	<jgroups>
+    	<stack-file name="udp" path="jgroups.xml" />
+    	<!-- stack-file name="udp" path="udp.xml" /-->
+  	</jgroups>
+
+  	<cache-container name="samples-cache-container" default-cache="default">
+    	<transport stack="udp" node-name="${nodeName}" />
+     	<replicated-cache  name="samples-repl" mode="SYNC" />
+     	<distributed-cache name="samples-dist" mode="SYNC" owners="4" />
+  	</cache-container>
+
+</infinispan>
+
