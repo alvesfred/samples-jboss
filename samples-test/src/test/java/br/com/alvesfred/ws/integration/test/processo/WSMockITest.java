@@ -50,6 +50,6 @@ public class WSMockITest {
 		assertEquals(200, res.getStatusCode());
 
 		String json = res.asString();
-		assertThat(json, containsString("Mock Info Test"));
+		assertThat(json, containsString("WS Test Client")); // see BaseSpringBootApplicationStartup
 	}
 }

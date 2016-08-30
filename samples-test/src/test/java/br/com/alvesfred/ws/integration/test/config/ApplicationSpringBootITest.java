@@ -3,6 +3,7 @@ package br.com.alvesfred.ws.integration.test.config;
 import static com.jayway.restassured.RestAssured.when;
 
 import org.fluentlenium.adapter.FluentTest;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,18 +29,41 @@ import br.com.alvesfred.ws.test.BaseSpringBootApplicationStartup;
 @IntegrationTest("server.port:7070")
 public class ApplicationSpringBootITest extends FluentTest {
 
+	//Firefox 47.0 as browser with Selenium WebDriver 2.53.0
+	static {
+		System.setProperty("webdriver.gecko.driver", "/path/to/geckodriver");
+	}
+
 	@Value("${local.server.port:7070}")
 	private int serverPort;
 
-	// ATENCAO: por conta do Driver do firefox o browser eh inicializado e o cursor de teste espera por acoes
 	//private WebDriver webDriver = new PhantomJSDriver();
-	private WebDriver webDriver = new FirefoxDriver();
+	//private WebDriver webDriver = new FirefoxDriver();
+	protected WebDriver webDriver;
 
-	@Before
-	public void setUp() {
-		webDriver.get("http://google.com");
-        System.out.println(webDriver.getPageSource());
-	}
+    //@BeforeClass
+    //public static void setupClass() {
+    //    MarionetteDriverManager.getInstance().setup();
+    //}
+
+    //@Before
+    //public void setupTest() {
+    //    webDriver = new MarionetteDriver();
+    //}
+
+    @Before
+    public void setUp() {
+    	webDriver = new FirefoxDriver();
+    	webDriver.get("http://google.com");
+    	System.out.println(webDriver.getPageSource());
+    }
+
+    @After
+    public void teardown() {
+        if (webDriver != null) {
+        	webDriver.quit();
+        }
+    }
 
 	@Override
 	public WebDriver getDefaultDriver() {
@@ -58,5 +82,4 @@ public class ApplicationSpringBootITest extends FluentTest {
 			assertThat().
 			statusCode(200);
 	}
-
 }
