@@ -8,7 +8,7 @@
 	
 	<container qualifier="jboss" default="true">
         <configuration>
-        	<property name="jbossHome">/opt/java/jboss/jboss-eap-6.4/</property>
+        	<property name="jbossHome">/opt/java/jboss/jboss-eap-6.4.0/</property>
         	<property name="serverConfig">standalone-full-ha.xml</property>
         	<property name="javaVmArguments">-Xms512m -Xmx1024m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -XX:+UseCompressedOops -XX:+AggressiveOpts -XX:+HeapDumpOnOutOfMemoryError -noverify -Xss512k -XX:StackShadowPages=8 -XX:+UseFastAccessorMethods</property>
             <property name="managementAddress">localhost</property>
