@@ -190,6 +190,15 @@
 			<scope>compile</scope>
 		</dependency>
 
+        <!-- Spark 
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>1.6.1</version>
+            <scope>compile</scope>
+        </dependency>
+        -->
+
 	</dependencies>
 
 	<build>

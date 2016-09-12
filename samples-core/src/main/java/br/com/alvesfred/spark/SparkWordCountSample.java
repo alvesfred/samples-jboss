@@ -1,17 +1,5 @@
 package br.com.alvesfred.spark;
 
-import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaPairRDD;
-import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.api.java.function.FlatMapFunction;
-import org.apache.spark.api.java.function.Function2;
-import org.apache.spark.api.java.function.PairFunction;
-
-import scala.Tuple2;
-
-import java.util.Arrays;
-
 /**
  * Sample code for Spark API - count words
  *
@@ -19,6 +7,7 @@ import java.util.Arrays;
  *
  */
 public class SparkWordCountSample {
+/*	
 	@SuppressWarnings("serial")
 	private static final FlatMapFunction<String, String> WORDS_MAP = 
 			new FlatMapFunction<String, String>() {
@@ -78,4 +67,5 @@ public class SparkWordCountSample {
 		//COUNT(args[0]);
 		COUNT("samples.txt");
 	}
+*/
 }

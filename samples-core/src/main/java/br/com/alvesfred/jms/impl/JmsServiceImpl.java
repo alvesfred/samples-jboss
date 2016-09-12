@@ -72,7 +72,7 @@ public abstract class JmsServiceImpl implements JmsService {
     	</connection-load-balancing-policy-class-name>
     </connection-factory>
     */
-	@Resource(mappedName = "java:/RemoteJmsXA")
+	@Resource(mappedName = "java:jboss/exported/jms/RemoteConnectionFactory")
     private ConnectionFactory cf;
 
 	@Override
